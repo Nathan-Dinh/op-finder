@@ -1,27 +1,32 @@
 <script setup>
 import { ref } from "vue";
+
 import SearchBar from "@/components/SearchBar.vue";
 import operatorTemplate from "@/components/operatorTemplate.vue";
+
 let opInfoObject = ref(null);
 
-const findOperator = async (op) => {
+const FindOperator = async (op) => {
   const opName = op.toLowerCase();
-  try {
-    const response = await fetch(
-      `https://arknights-api-nathan-dinh.onrender.com/operator/${opName}`
-    );
-    const context = await response.json();
-    opInfoObject.value = context;
-  } catch (error) {
-    console.log(error);
+  if(typeof opName === "string" && opName.trim().length !== 0 && isNaN(opName)){
+    try {
+      const response = await fetch(
+        `https://arknights-api-nathan-dinh.onrender.com/operator/${opName}`
+      );
+      const context = await response.json();
+      opInfoObject.value = context;
+    } catch (error) {
+      console.log(error);
+    }
+  }else{
+    alert("Invalid input")
   }
-  console.log(opInfoObject);
 };
 </script>
 
 <template>
   <section id="container">
-    <SearchBar @op-name-tracker="findOperator" />
+    <SearchBar @op-name-tracker="FindOperator" />
     <operatorTemplate :opInfo="opInfoObject" />
   </section>
 </template>
@@ -34,6 +39,4 @@ const findOperator = async (op) => {
   flex-direction: column;
   justify-content: center;
 }
-
-
 </style>
