@@ -1,14 +1,17 @@
 <script setup>
 import { ref } from "vue";
-const navItems = ref(["Github", "LinkedIn"]);
+const navItems = ref([
+  { name: "Github", href: "https://github.com/Nathan-Dinh" },
+  { name: "Linkedin", href:"https://www.linkedin.com/in/nathan-dinh-8782a6215/" },
+]);
 </script>
 
 <template>
   <header app dark height="80">
-    <div href="#" class="m-5" v-for="item in navItems">
-        <a href="#">
-            {{ item }}
-        </a>
+    <div class="m-5" v-for="item in navItems">
+      <a :href="item.href" target="_blank" rel=" nofollow">
+        {{ item.name }}
+      </a>
     </div>
   </header>
 </template>
@@ -22,15 +25,15 @@ header {
 }
 
 a {
-    font-size: 1.7em;
-    font-weight: 600;
-    color: black;
-    padding-right: 2em;
+  font-size: 1.7em;
+  font-weight: 600;
+  color: black;
+  padding-right: 2em;
 }
 
 a:hover {
-    color: white;
-    font-weight: 600;
-    padding-right: 2em;
+  color: white;
+  font-weight: 600;
+  padding-right: 2em;
 }
 </style>
