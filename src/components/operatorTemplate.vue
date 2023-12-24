@@ -1,6 +1,5 @@
 <script setup>
 const props = defineProps(["opInfo"]);
-console.log(props.opInfo);
 </script>
 
 <template>
