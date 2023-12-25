@@ -8,8 +8,8 @@ A simple web application created in vue vite.
 
 ## Project Description
 
-This web application is a mini projected I wanted to create in vue a introduction to the framework. The web application uses a api I created which is based on the a populer mobile game called Arknights.
-It allows the user to search for any operator up to a certain point getting getting basic information on the operator.
+This web application represents a small-scale project designed as an introductory showcase of Vue.js framework capabilities. Utilizing an API developed specifically for this purpose, the application revolves around a well-known mobile game, Arknights. 
+Users can efficiently explore and retrieve basic information about various game operators up to a specified threshold through the search functionality provided.
 
 ![image](https://github.com/Nathan-Dinh/op-finder/assets/106849932/877df12a-0f03-4811-b599-f7e3c8e26a5d)
 
