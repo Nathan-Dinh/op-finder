@@ -9,7 +9,7 @@ const navItems = ref([
 <template>
   <header app dark height="80">
     <div class="m-5" v-for="item in navItems">
-      <a :href="item.href" target="_blank" rel=" nofollow">
+      <a :href="item.href" target="_blank" rel="noopener noreferrer">
         {{ item.name }}
       </a>
     </div>
