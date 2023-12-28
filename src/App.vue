@@ -26,9 +26,10 @@ import { RouterView  } from 'vue-router'
    }
 
    #content-one{
-      max-width: 15%;
-      min-height: 80vh; 
       width: 100%; 
+      max-width: 15%;
+      max-height: 80vh;
+      height: 80vh; 
       padding: 1em;
       background-color: rgb(34, 34, 34);
       color: lightgray; 
