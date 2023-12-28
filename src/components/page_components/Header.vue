@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from "vue";
 const navItems = ref([
-  { name: "Github", href: "https://github.com/Nathan-Dinh" },
-  { name: "Linkedin", href:"https://www.linkedin.com/in/nathan-dinh-8782a6215/" },
+  { name: "Github", href: "https://github.com/Nathan-Dinh", icon:"ri-github-line"  },
+  { name: "Linkedin", href:"https://www.linkedin.com/in/nathan-dinh-8782a6215/", icon:"ri-linkedin-box-line" },
 ]);
 </script>
 
@@ -10,7 +10,7 @@ const navItems = ref([
   <header app dark height="80">
     <div class="m-5" v-for="item in navItems">
       <a :href="item.href" target="_blank" rel="noopener noreferrer">
-        {{ item.name }}
+        <v-icon :name="item.icon" scale="3" animation="float" hover="true" speed="fast"/>
       </a>
     </div>
   </header>
