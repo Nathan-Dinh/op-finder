@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps(["opInfo"]);
+  const props = defineProps(["opInfo"]);
 </script>
 
 <template>
@@ -62,7 +62,7 @@ const props = defineProps(["opInfo"]);
   background: rgb(129, 129, 129);
 }
 .image-resize {
-  max-width: 40%;
+  max-width: 50%;
   height: auto;
 }
 .card-container {
@@ -77,8 +77,8 @@ const props = defineProps(["opInfo"]);
     "profile-sub profile-sub profile-sub profile-sub"
     "profile profile profile profile";
   background-color: lightgray;
-  border-radius: 10px;
-  padding: 4em 5em;
-  margin: 0 20em;
+  border-radius: 5px;
+  padding: 3em 4em;
+  margin: 0 5em;
 }
 </style>

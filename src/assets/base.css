@@ -27,10 +27,6 @@
     background-color: rgb(100, 99, 99); /* Default text color */
   }
 
-  .container{
-    padding: 2em;
-  }
-  
   /* Links */
   a {
     text-decoration: none;
