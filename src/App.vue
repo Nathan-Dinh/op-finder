@@ -26,8 +26,6 @@ import { RouterView } from "vue-router";
 }
 
 #content-one {
-  width: 100%;
-  max-width: 15%;
   max-height: 80vh;
   height: 80vh;
   padding: 1em;
@@ -37,7 +35,7 @@ import { RouterView } from "vue-router";
 }
 
 #content-two {
-  max-width: 85%;
+  max-width: 100%;
   width: 100%;
 }
 </style>
