@@ -29,18 +29,22 @@ const FindOperator = async (op) => {
 </script>
 
 <template>
-  <div id="container">
-    <SearchBar @op-name-tracker="FindOperator" />
-    <operatorTemplate :opInfo="opInfoObject" />
+  <div class="container">
+    <div>
+      <h1 class="title">Search</h1>
+    </div>
+    <div id="main-container">
+      <SearchBar @op-name-tracker="FindOperator" />
+      <operatorTemplate :opInfo="opInfoObject" />
+    </div>
   </div>
 </template>
 
 <style scoped>
-#container {
-  padding:0 1em;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
+  #main-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
 </style>
