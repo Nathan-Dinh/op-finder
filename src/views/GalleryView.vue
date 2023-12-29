@@ -1,19 +1,21 @@
 <script setup>
-import OperatorPortraitCard from "../components/operatorPortraitCard.vue"
-import {ref} from "vue"
-let listOfOp = ref(null)
+import OperatorPortraitCard from "../components/operatorPortraitCard.vue";
+import { ref } from "vue";
+let listOfOp = ref(null);
 
-const FetchOperators = async () =>{
-  const response = await fetch("https://arknights-api-nathan-dinh.onrender.com/operators")
-  const data = await response.json()
-  listOfOp.value = data
-}
-FetchOperators()
+const FetchOperators = async () => {
+  const response = await fetch(
+    "https://arknights-api-nathan-dinh.onrender.com/operators"
+  );
+  const data = await response.json();
+  listOfOp.value = data;
+};
+FetchOperators();
 </script>
 
 <template>
   <div class="container">
-    <div >
+    <div>
       <h1 class="title">Gallery view</h1>
     </div>
     <div class="main-container">
@@ -25,9 +27,9 @@ FetchOperators()
 </template>
 
 <style scoped>
-.main-container{
+.main-container {
   display: grid;
-  grid-template-columns: repeat(3,auto);
+  grid-template-columns: repeat(3, auto);
   grid-gap: 1em;
 }
 </style>
