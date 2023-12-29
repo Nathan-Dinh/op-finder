@@ -10,7 +10,7 @@ const CapitalizeName = (str) => {
   });
   return fullName;
 };
-if(props.opInfo != null){
+if (props.opInfo != null) {
   console.log(CapitalizeName(prop.opInfo.name));
 }
 </script>
@@ -21,7 +21,9 @@ if(props.opInfo != null){
       <div class="operator-image">
         <img class="image-resize" :src="props.opInfo.imgUrl" alt="opImage" />
       </div>
-      <h1 class="operator-name">{{ CapitalizeName(props.opInfo.name).trim() }}</h1>
+      <h1 class="operator-name">
+        {{ CapitalizeName(props.opInfo.name).trim() }}
+      </h1>
       <h2 class="requirement-sub-header sub-header">Requirement tag</h2>
       <div v-for="tag in props.opInfo.recruitmentTag">
         <p class="tags sub-content">{{ tag }}</p>
@@ -65,13 +67,13 @@ if(props.opInfo != null){
   grid-area: profile;
 }
 .sub-content {
-  font-size: 16px;
+  font-size: 1.5em;
   padding: 1em;
 }
 
 .sub-header {
   padding: 1em;
-  font-size: 1em;
+  font-size: 1.5em;
   background: rgb(129, 129, 129);
 }
 .image-resize {
