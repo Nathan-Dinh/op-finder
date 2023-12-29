@@ -1,5 +1,18 @@
 <script setup>
-  const props = defineProps(["opInfo"]);
+const props = defineProps(["opInfo"]);
+
+const CapitalizeName = (str) => {
+  let fullName = "";
+  const STR_ARRAY = str.split(" ");
+  STR_ARRAY.forEach((str) => {
+    fullName +=
+      str.charAt(0).toUpperCase() + str.substring(1, str.length) + " ";
+  });
+  return fullName;
+};
+if(props.opInfo != null){
+  console.log(CapitalizeName(prop.opInfo.name));
+}
 </script>
 
 <template>
@@ -8,7 +21,7 @@
       <div class="operator-image">
         <img class="image-resize" :src="props.opInfo.imgUrl" alt="opImage" />
       </div>
-      <h1 class="operator-name">{{ props.opInfo.name }}</h1>
+      <h1 class="operator-name">{{ CapitalizeName(props.opInfo.name).trim() }}</h1>
       <h2 class="requirement-sub-header sub-header">Requirement tag</h2>
       <div v-for="tag in props.opInfo.recruitmentTag">
         <p class="tags sub-content">{{ tag }}</p>
@@ -37,7 +50,8 @@
   grid-area: image;
 }
 .operator-name {
-  font-size: 2.5em;
+  font-size: 2em;
+  font-weight: bolder;
   text-align: center;
   grid-area: name;
 }
@@ -50,19 +64,18 @@
 .profile {
   grid-area: profile;
 }
-
 .sub-content {
-  font-size: 24px;
+  font-size: 16px;
   padding: 1em;
 }
 
 .sub-header {
   padding: 1em;
-  font-size: 1.6em;
+  font-size: 1em;
   background: rgb(129, 129, 129);
 }
 .image-resize {
-  max-width: 50%;
+  max-width: 30%;
   height: auto;
 }
 .card-container {
