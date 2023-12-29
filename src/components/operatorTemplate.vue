@@ -75,7 +75,7 @@ if(props.opInfo != null){
   background: rgb(129, 129, 129);
 }
 .image-resize {
-  max-width: 30%;
+  max-width: 35em;
   height: auto;
 }
 .card-container {
@@ -91,7 +91,7 @@ if(props.opInfo != null){
     "profile profile profile profile";
   background-color: lightgray;
   border-radius: 5px;
-  padding: 3em 4em;
-  margin: 0 5em;
+  padding: 3em 2em;
+  margin: 0 2em;
 }
 </style>
