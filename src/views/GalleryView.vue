@@ -6,4 +6,12 @@
   </div>
 </template>
 
-<script scoped></script>
+<style scoped>
+#container {
+  padding: 0 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+</style>
