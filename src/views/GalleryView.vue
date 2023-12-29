@@ -1,5 +1,14 @@
 <script setup>
-import OperatorPotraitCard from "../components/operatorPotraitCard.vue"
+import OperatorPortraitCard from "../components/operatorPortraitCard.vue"
+import {ref} from "vue"
+let listOfOp = ref(null)
+
+const FetchOperators = async () =>{
+  const response = await fetch("https://arknights-api-nathan-dinh.onrender.com/operators")
+  const data = await response.json()
+  listOfOp.value = data
+}
+FetchOperators()
 </script>
 
 <template>
@@ -8,12 +17,9 @@ import OperatorPotraitCard from "../components/operatorPotraitCard.vue"
       <h1 class="title">Gallery view</h1>
     </div>
     <div class="main-container">
-      <OperatorPotraitCard/>
-      <OperatorPotraitCard/>
-      <OperatorPotraitCard/>
-      <OperatorPotraitCard/>
-      <OperatorPotraitCard/>
-      <OperatorPotraitCard/>
+      <div v-for="op in listOfOp">
+        <OperatorPortraitCard :opImage="op.imgUrl" />
+      </div>
     </div>
   </div>
 </template>
