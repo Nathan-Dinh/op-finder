@@ -32,6 +32,16 @@
     text-decoration: none;
   }
 
+  .title{
+    font-size: xx-large;
+    font-weight: bold;
+    color: lightgray;
+  }
+  
+  .container {
+    padding:0 1em;
+  }
+
 /* Tooltip text */
 .tooltiptext {
   visibility: hidden;
