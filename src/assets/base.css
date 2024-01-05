@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 /* CSS Reset */
 /* Box sizing border-box for all elements */
 * {
-    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -24,7 +21,6 @@
   body {
     font-size: 16px;
     line-height: 1.6;
-    background-color: rgb(100, 99, 99); /* Default text color */
   }
 
   /* Links */
@@ -35,7 +31,6 @@
   .title{
     font-size: xx-large;
     font-weight: bold;
-    color: lightgray;
   }
   
   .container {
@@ -54,7 +49,7 @@
  
   /* Position the tooltip text - see examples below! */
   position: absolute;
-  left: 6em;
+  left: 5.5em;
   z-index: 1;
 }
 
