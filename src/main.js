@@ -1,8 +1,11 @@
 import "./assets/main.css";
 
 import { createApp } from "vue";
+import PrimeVue from "primevue/config";
 import App from "./App.vue";
 import router from "./router";
+
+import "primevue/resources/themes/vela-blue/theme.css";
 
 import { OhVueIcon, addIcons } from "oh-vue-icons";
 import {
@@ -11,6 +14,7 @@ import {
   MdViewlistOutlined,
   RiGithubLine,
   RiLinkedinBoxLine,
+  BiFileEarmarkPerson,
 } from "oh-vue-icons/icons";
 
 addIcons(
@@ -18,11 +22,13 @@ addIcons(
   MdPersonsearchTwotone,
   MdViewlistOutlined,
   RiGithubLine,
-  RiLinkedinBoxLine
+  RiLinkedinBoxLine,
+  BiFileEarmarkPerson
 );
 
 const app = createApp(App);
 app.component("v-icon", OhVueIcon);
+app.use(PrimeVue);
 app.use(router);
 
 app.mount("#app");
