@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { useCurrentTab } from "../store/useCurrentTab.js";
+const update = useCurrentTab(state => state.updateOptionTab)
+update("Home")
+</script>
 
 <template>
   <div class="container">
