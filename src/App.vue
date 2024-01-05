@@ -22,20 +22,22 @@ import { RouterView } from "vue-router";
 <style scoped>
 .main-content-container {
   display: flex;
+  min-height: 80vh;
   padding: 2em;
 }
 
 #content-one {
-  max-height: 80vh;
   height: 80vh;
-  padding: 1em;
-  background-color: rgb(34, 34, 34);
-  color: lightgray;
+  padding: 0.3em;
+  background: #1f2d40;
+  color: rgba(255, 255, 255, 0.87);
+  border: 1px solid #304562;
   border-radius: 5px;
 }
-
 #content-two {
-  max-width: 100%;
   width: 100%;
+  max-width: 100%;
+  max-height: 80vh;
+  padding: 0 2em;
 }
 </style>
