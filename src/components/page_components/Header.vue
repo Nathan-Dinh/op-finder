@@ -10,7 +10,7 @@ const navItems = ref([
   <header app dark height="80">
     <div class="m-5" v-for="item in navItems">
       <a :href="item.href" target="_blank" rel="noopener noreferrer">
-        <v-icon :name="item.icon" scale="3" animation="float" hover="true" speed="fast"/>
+        <v-icon :name="item.icon" scale="2" animation="float" hover="true" speed="fast"/>
       </a>
     </div>
   </header>
@@ -27,7 +27,7 @@ header {
 a {
   font-size: 1.7em;
   font-weight: 600;
-  color: black;
+  color: darkgray;
   padding-right: 2em;
 }
 
