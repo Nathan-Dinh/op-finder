@@ -1,5 +1,6 @@
 <script setup>
 const props = defineProps(["opInfo"]);
+import Card from "primevue/card";
 
 const CapitalizeName = (str) => {
   let fullName = "";
@@ -10,30 +11,49 @@ const CapitalizeName = (str) => {
   });
   return fullName;
 };
+
 if (props.opInfo != null) {
-  console.log(CapitalizeName(prop.opInfo.name));
+  console.log(CapitalizeName(props.opInfo.name));
 }
 </script>
 
 <template>
-  <div>
-    <div class="card-container" v-if="props.opInfo != null">
-      <div class="operator-image">
-        <img class="image-resize" :src="props.opInfo.imgUrl" alt="opImage" />
+  <Card>
+    <template #content>
+      <div class="card-container" v-if="props.opInfo != null">
+        <div class="operator-image">
+          <img class="image-resize" :src="props.opInfo.imgUrl" alt="opImage" />
+        </div>
+        <div>
+          <div class="operator-name">
+            <h1>
+              {{ CapitalizeName(props.opInfo.name).trim() }}
+            </h1>
+          </div>
+          <div class="requirement-sub-header">
+            <h2 class="sub-header">Requirement tag</h2>
+          </div>
+          <div class="tags sub-content">
+            <div v-for="tag in props.opInfo.recruitmentTag">
+              <p>{{ tag }}</p>
+            </div>
+          </div>
+          <div class="archetype-sub-header">
+            <h2 class="sub-header">Archetype</h2>
+          </div>
+          <div class="archetype">
+            <p class="sub-content">{{ props.opInfo.archetype }}</p>
+          </div>
+          <div class="profile-sub-header">
+            <h2 class="sub-header">Profile</h2>
+          </div>
+          <div class="profile">
+            <p class="sub-content">{{ props.opInfo.profile }}</p>
+          </div>
+        </div>
       </div>
-      <h1 class="operator-name">
-        {{ CapitalizeName(props.opInfo.name).trim() }}
-      </h1>
-      <h2 class="requirement-sub-header sub-header">Requirement tag</h2>
-      <div v-for="tag in props.opInfo.recruitmentTag">
-        <p class="tags sub-content">{{ tag }}</p>
-      </div>
-      <h2 class="archetype-sub-header sub-header">Archetype</h2>
-      <p class="archetype sub-content">{{ props.opInfo.archetype }}</p>
-      <h2 class="profile-sub-header sub-header">Profile</h2>
-      <p class="profile sub-content">{{ props.opInfo.profile }}</p>
-    </div>
-  </div>
+    </template>
+  </Card>
 </template>
 
 <style scoped>
@@ -47,53 +67,57 @@ if (props.opInfo != null) {
   grid-area: profile-sub;
 }
 .operator-image {
-  display: flex;
-  justify-content: center;
   grid-area: image;
 }
 .operator-name {
   font-size: 2em;
   font-weight: bolder;
   text-align: center;
+  margin-bottom: 1em;
   grid-area: name;
 }
 .archetype {
   grid-area: arch;
 }
 .tags {
+  display: flex;
   grid-area: tags;
+}
+
+.tags div {
+  margin-right: 1em;
 }
 .profile {
   grid-area: profile;
 }
-.sub-content {
-  font-size: 1.5em;
-  padding: 1em;
-}
-
 .sub-header {
-  padding: 1em;
+  display: flex;
+  align-items: center;
   font-size: 1.5em;
+  padding: 0.5em;
+  border-radius: 5px;
   background: rgb(129, 129, 129);
 }
+.sub-content {
+  font-size: 1.2em;
+  padding: 1em;
+}
 .image-resize {
-  max-width: 35em;
+  max-width: 100%;
   height: auto;
 }
 .card-container {
   display: grid;
   grid-template-areas:
-    "image image image image"
-    "name name name name"
-    "requirement-sub requirement-sub requirement-sub requirement-sub"
-    "tags tags tags tags"
-    "arch-sub arch-sub arch-sub arch-sub"
-    "arch arch arch arch"
-    "profile-sub profile-sub profile-sub profile-sub"
-    "profile profile profile profile";
-  background-color: lightgray;
+    "image name name"
+    "image requirement-sub requirement-sub"
+    "image tags tags"
+    "image arch-sub arch-sub"
+    "image arch arch"
+    "image profile-sub profile-sub"
+    "image profile profile";
   border-radius: 5px;
-  padding: 3em 2em;
-  margin: 0 2em;
+  height: 80vh;
+  padding: 2em;
 }
 </style>
