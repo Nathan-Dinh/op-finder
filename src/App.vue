@@ -2,20 +2,47 @@
 import Header from "./components/page_components/Header.vue";
 import Footer from "./components/page_components/Footer.vue";
 import SubNavigation from "./components/page_components/SubNavigation.vue";
+import { useCurrentTab } from "./store/useCurrentTab";
 
 import { RouterView } from "vue-router";
+import { KeepAlive } from "vue";
+
+const updateOptionTab = useCurrentTab((state) => state.updateOptionTab);
+
+const UpdateCurrentTab = (tab) =>{
+  updateOptionTab(tab)
+}
+
+const sideNavItems = [
+  { name: "Home", path: "/", icon: "md-home-outlined", tooltip: "Home" },
+  {
+    name: "Search",
+    path: "/search",
+    icon: "md-personsearch-twotone",
+    tooltip: "Search",
+  },
+  {
+    name: "Gallery",
+    path: "/gallery",
+    icon: "md-viewlist-outlined",
+    tooltip: "Gallery",
+  },
+];
+
 </script>
 
 <template>
   <Header />
-  <section class="main-content-container">
-    <div id="content-one">
-      <SubNavigation />
-    </div>
+  <div class="main-content-container">
+    <SubNavigation :items="sideNavItems" @click-handler="UpdateCurrentTab"/>
     <div id="content-two">
-      <RouterView />
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
     </div>
-  </section>
+  </div>
   <Footer />
 </template>
 
