@@ -1,53 +1,50 @@
 <script setup>
-import { ref } from "vue";
+import { ref, defineProps } from "vue";
 import { RouterLink } from "vue-router";
 import { useCurrentTab } from "../../store/useCurrentTab";
 
-const test = ref(useCurrentTab((state) => state.currentOptionTab));
-const { updateOptionTab } = useCurrentTab();
-
-const sideNavItems = ref([
-  { name: "Home", path: "/", icon: "md-home-outlined", tooltip: "Home" },
-  {
-    name: "Search",
-    path: "/search",
-    icon: "md-personsearch-twotone",
-    tooltip: "Search",
-  },
-  {
-    name: "Gallery",
-    path: "/gallery",
-    icon: "md-viewlist-outlined",
-    tooltip: "Gallery",
-  },
-]);
+const props = defineProps(['items'])
+const currentOptionTab = ref(useCurrentTab((state) => state.currentOptionTab));
 </script>
 
 <template>
-  <div class="title-container">
-    <div>
-      <img src="/Rhodes_Island.webp" alt="icon" class="icon" />
-    </div>
-  </div>
-  <hr />
-  <nav class="nav-container">
-    <router-link
-      @click="updateOptionTab(items.name)"
-      class="pushable tooltip"
-      :to="items.path"
-      v-for="items in sideNavItems"
-    >
-      <div :class="test === items.name ? 'front highlighted' : 'front'">
-        <v-icon :name="items.icon" scale="2" />
-        <span class="tooltiptext">{{ items.tooltip }}</span>
+  <aside class="container">
+    <header class="title-container">
+      <div>
+        <img src="/Rhodes_Island.webp" alt="icon" class="icon" />
       </div>
-    </router-link>
-  </nav>
+    </header>
+    <hr />
+    <nav class="nav-container">
+      <router-link
+        @click="$emit('click-handler',items.name)"
+        class="pushable tooltip"
+        :to="items.path"
+        v-for="items in props.items"
+      >
+        <div
+          :class="currentOptionTab === items.name ? 'front highlighted' : 'front'"
+        >
+          <v-icon :name="items.icon" scale="2" />
+          <span class="tooltiptext">{{ items.tooltip }}</span>
+        </div>
+      </router-link>
+    </nav>
+  </aside>
 </template>
 
 <style scoped>
 .icon {
   width: 3.2em;
+}
+
+.container{
+  height: 80vh;
+  padding: 0.3em;
+  background: #1f2d40;
+  color: rgba(255, 255, 255, 0.87);
+  border: 1px solid #304562;
+  border-radius: 5px;
 }
 .title-container {
   display: flex;
@@ -89,9 +86,11 @@ const sideNavItems = ref([
 .pushable:hover .front {
   transform: translateY(-6px);
   transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+  color: white;
 }
 
 .pushable:active .front {
   transform: translateY(-2px);
 }
+
 </style>
