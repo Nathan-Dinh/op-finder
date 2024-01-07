@@ -4,6 +4,7 @@ import { RouterLink } from "vue-router";
 import operatorPortraitCard from "@/components/operatorPortraitCard.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import TabBar from "../components/TabBar.vue";
+import TreeSelect from "@/components/TreeSelect.vue";
 import { useCurrentTab } from "../store/useCurrentTab.js";
 
 const updateSearchTab = useCurrentTab((state) => state.updateSearchTab);
@@ -31,6 +32,7 @@ const OPTION_LIST_ITEM = [
 const SearchEventHandler = async (op) => {
   const str = op.toLowerCase();
   let urlString = "";
+  console.log(currentTab.value)
   if (typeof str === "string" && str.trim().length !== 0 && isNaN(str)) {
     switch (currentTab.value) {
       case "Name":
@@ -56,6 +58,7 @@ const SearchEventHandler = async (op) => {
 };
 
 const UpdateCurrentTab = (tab) => {
+  console.log(tab)
   updateSearchTab(tab);
 };
 
@@ -67,7 +70,12 @@ onBeforeMount(() => {
 <template>
   <div>
     <aside>
-      <TabBar @click-handler="UpdateCurrentTab" :items="OPTION_LIST_ITEM" />
+      <TabBar
+        @click-handler="UpdateCurrentTab"
+        :items="OPTION_LIST_ITEM"
+        class="primary-nav"
+      />
+      <TreeSelect @change-handler="UpdateCurrentTab" :items="OPTION_LIST_ITEM" class="secondary-nav" />
     </aside>
     <div id="main-container">
       <SearchBar @event-click-handler="SearchEventHandler" />
@@ -86,11 +94,37 @@ onBeforeMount(() => {
   flex-direction: column;
   align-items: center;
 }
-
 .sub-container {
   display: grid;
   grid-template-columns: repeat(2, auto);
-  overflow: auto;
-  height: 60vh;
+  height: 65vh;
+}
+
+.secondary-nav{
+  display: flex;
+  flex: 1;
+  display: none;
+  width: 100%;
+}
+
+@media only screen and (max-width: 700px) {
+  .primary-nav  {
+    display: none;
+  }
+
+  .secondary-nav{
+    display: block;
+  }
+
+  .sub-container{
+    grid-template-columns: repeat(1, auto);
+
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .sub-container{
+    overflow: auto;
+  }
 }
 </style>
