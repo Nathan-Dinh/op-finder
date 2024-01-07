@@ -24,24 +24,23 @@
 .search-box{
   display: flex;
   align-items: center;
+  margin: 1em;
 }
 .search-box .user-box input {
-  margin: 1em;
   width: 100%;
-  font-size: 32px;
+  font-size: 1.3em;
   color: #fff;
 }
 .button-31 {
-
   border-radius: 5px;
   box-sizing: border-box;
   color: #fff;
   display: inline-block;
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.5;
-  margin: 0 2em;
+  margin: 0 1em;
   cursor: pointer;
-  padding: 5px 20px 5px;
+  padding: 2px 15px 2px;
 }
 .button-31:hover,
 .button-31:focus {
