@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onBeforeMount } from "vue";
-import OperatorPortraitCard from "../components/operatorPortraitCard.vue";
+import OperatorPortraitCard from "@/components/operatorPortraitCard.vue";
 import { Capitalize } from "../utilities/formatting.js";
 import { useCurrentTab } from "../store/useCurrentTab.js";
 
@@ -43,9 +43,10 @@ FetchOperators();
   font-size: 1em;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 900px) {
   .main-container {
     padding: 0;
+    max-height: 105vh;
   }
 
   .header {
