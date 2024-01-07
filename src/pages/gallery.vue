@@ -15,30 +15,47 @@ const FetchOperators = async () => {
 
 onBeforeMount(() => {
   UPDATE_OPTION_TAB("Gallery");
-})
+});
 FetchOperators();
 </script>
 
 <template>
-    <div class="main-container">
-      <div v-for="item in OPERATOR_ARR">
-        <header>
-          <h1>{{ Capitalize(item.name) }}</h1>
-        </header>
-        <section>
-          <OperatorPortraitCard :op="item" />
-        </section>
-      </div>
+  <div class="main-container">
+    <div v-for="item in OPERATOR_ARR">
+      <header class="header">
+        <h1>{{ Capitalize(item.name) }}</h1>
+      </header>
+      <section>
+        <OperatorPortraitCard :op="item" />
+      </section>
     </div>
+  </div>
 </template>
 
 <style scoped>
 .main-container {
-  overflow: auto;
   min-height: 80vh;
   max-height: 80vh;
-  padding:0 15em;
-  border-left: 1px solid;
+  padding: 0 15em;
   text-align: center;
+}
+.header {
+  font-size: 1em;
+}
+
+@media only screen and (max-width: 700px) {
+  .main-container {
+    padding: 0;
+  }
+
+  .header {
+    font-size: 0.5em;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .main-container {
+    overflow: auto;
+  }
 }
 </style>
