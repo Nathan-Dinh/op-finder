@@ -32,9 +32,9 @@ const sideNavItems = [
 </script>
 
 <template>
-  <Header />
+  <Header class="head"/>
   <div class="main-content-container">
-    <SubNavigation :items="sideNavItems" @click-handler="UpdateCurrentTab"/>
+    <SubNavigation :items="sideNavItems" @click-handler="UpdateCurrentTab" class="nav"/>
     <div id="content-two">
       <router-view v-slot="{ Component }">
         <keep-alive>
@@ -50,7 +50,7 @@ const sideNavItems = [
 .main-content-container {
   display: flex;
   min-height: 80vh;
-  padding: 2em;
+  padding: 1em 0.5em 0.5em;
 }
 
 #content-one {
@@ -65,6 +65,13 @@ const sideNavItems = [
   width: 100%;
   max-width: 100%;
   max-height: 80vh;
-  padding: 0 2em;
+  padding: 0 1em;
+
+}
+
+@media only screen and (max-width: 700px) {
+  .nav  {
+    display: none;
+  }
 }
 </style>
