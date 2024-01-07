@@ -2,8 +2,8 @@
 import { ref, defineProps } from "vue";
 import { RouterLink } from "vue-router";
 import Menubar from "primevue/menubar";
-const currentTab = ref(useCurrentTab((state) => state.currentSearchTab));
 import { useCurrentTab } from "../store/useCurrentTab.js";
+const currentTab = ref(useCurrentTab((state) => state.currentSearchTab));
 
 const props = defineProps(["items"]);
 </script>
