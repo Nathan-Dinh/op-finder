@@ -61,7 +61,7 @@ import { Capitalize } from "@/utilities/formatting";
   grid-area: image;
 }
 .operator-name {
-  font-size: 2em;
+  font-size: 1.3em;
   font-weight: bolder;
   text-align: center;
   margin-bottom: 1em;
@@ -84,13 +84,13 @@ import { Capitalize } from "@/utilities/formatting";
 .sub-header {
   display: flex;
   align-items: center;
-  font-size: 1.2em;
+  font-size: 1em;
   padding: 0.5em;
   border-radius: 5px;
   background: rgb(129, 129, 129);
 }
 .sub-content {
-  font-size: 1em;
+  font-size: 0.8em;
   padding: 1em;
 }
 .image-resize {
@@ -110,7 +110,7 @@ import { Capitalize } from "@/utilities/formatting";
   border-radius: 5px;
   align-items: center;
   height: 80vh;
-  padding: 2em;
+  padding: 1em;
 }
 
 @media only screen and (max-width: 1200px) {
