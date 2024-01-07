@@ -3,9 +3,9 @@ import { ref, onBeforeMount, onBeforeUpdate } from "vue";
 import { RouterLink } from "vue-router";
 import operatorPortraitCard from "@/components/operatorPortraitCard.vue";
 import SearchBar from "@/components/SearchBar.vue";
-import TabBar from "../components/TabBar.vue";
-import TreeSelect from "@/components/TreeSelect.vue";
-import { useCurrentTab } from "../store/useCurrentTab.js";
+import TabBar from "@/components/TabBar.vue";
+import DropDown from "@/components/Dropdown.vue";
+import { useCurrentTab } from "@/store/useCurrentTab.js";
 
 const updateSearchTab = useCurrentTab((state) => state.updateSearchTab);
 
@@ -32,7 +32,7 @@ const OPTION_LIST_ITEM = [
 const SearchEventHandler = async (op) => {
   const str = op.toLowerCase();
   let urlString = "";
-  console.log(currentTab.value)
+  console.log(currentTab.value);
   if (typeof str === "string" && str.trim().length !== 0 && isNaN(str)) {
     switch (currentTab.value) {
       case "Name":
@@ -58,7 +58,7 @@ const SearchEventHandler = async (op) => {
 };
 
 const UpdateCurrentTab = (tab) => {
-  console.log(tab)
+  console.log(tab);
   updateSearchTab(tab);
 };
 
@@ -75,7 +75,11 @@ onBeforeMount(() => {
         :items="OPTION_LIST_ITEM"
         class="primary-nav"
       />
-      <TreeSelect @change-handler="UpdateCurrentTab" :items="OPTION_LIST_ITEM" class="secondary-nav" />
+      <DropDown
+        @change-handler="UpdateCurrentTab"
+        :items="OPTION_LIST_ITEM"
+        class="secondary-nav"
+      />
     </aside>
     <div id="main-container">
       <SearchBar @event-click-handler="SearchEventHandler" />
@@ -100,7 +104,7 @@ onBeforeMount(() => {
   height: 65vh;
 }
 
-.secondary-nav{
+.secondary-nav {
   display: flex;
   flex: 1;
   display: none;
@@ -108,22 +112,21 @@ onBeforeMount(() => {
 }
 
 @media only screen and (max-width: 700px) {
-  .primary-nav  {
+  .primary-nav {
     display: none;
   }
 
-  .secondary-nav{
+  .secondary-nav {
     display: block;
   }
 
-  .sub-container{
+  .sub-container {
     grid-template-columns: repeat(1, auto);
-
   }
 }
 
 @media only screen and (min-width: 700px) {
-  .sub-container{
+  .sub-container {
     overflow: auto;
   }
 }
