@@ -41,7 +41,7 @@ a {
 }
 
 a:hover {
-  color: white;
+  color: lightgray;
   font-weight: 600;
   padding-right: 2em;
 }
