@@ -8,9 +8,9 @@ const OPERATOR_ARR = ref(null);
 const UPDATE_OPTION_TAB = useCurrentTab((state) => state.updateOptionTab);
 
 const FetchOperators = async () => {
-  const RESPONSE = await fetch("http://localhost:3000/operators");
+  const RESPONSE = await fetch("https://www.arknightsapi.com/v1/operators");
   const DATA = await RESPONSE.json();
-  OPERATOR_ARR.value = DATA;
+  OPERATOR_ARR.value = DATA.operators;
 };
 
 onBeforeMount(() => {

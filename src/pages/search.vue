@@ -8,9 +8,7 @@ import DropDown from "@/components/Dropdown.vue";
 import { useCurrentTab } from "@/store/useCurrentTab.js";
 
 const updateSearchTab = useCurrentTab((state) => state.updateSearchTab);
-
 let returnInformation = ref(null);
-
 let currentTab = useCurrentTab((state) => state.currentSearchTab);
 const update = useCurrentTab((state) => state.updateOptionTab);
 
@@ -36,19 +34,19 @@ const SearchEventHandler = async (op) => {
   if (typeof str === "string" && str.trim().length !== 0 && isNaN(str)) {
     switch (currentTab.value) {
       case "Name":
-        urlString = `http://localhost:3000/operators/${str}`;
+        urlString = `https://www.arknightsapi.com/v1/operators/${str}`;
         break;
       case "Profession":
-        urlString = `http://localhost:3000/operators/profession/${str}`;
+        urlString = `https://www.arknightsapi.com/v1/operators/profession/${str}`;
         break;
       case "Position":
-        urlString = `http://localhost:3000/operators/position/${str}`;
+        urlString = `https://www.arknightsapi.com/v1/operators/position/${str}`;
         break;
     }
     try {
       const response = await fetch(urlString);
       const context = await response.json();
-      returnInformation.value = context;
+      returnInformation.value = context.operators;
     } catch (error) {
       console.log(error);
     }
