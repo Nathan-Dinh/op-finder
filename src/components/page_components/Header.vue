@@ -18,10 +18,7 @@ const navItems = ref([
   <header height="80">
     <div class="m-5" v-for="item in navItems">
       <a :href="item.href" target="_blank" rel="noopener noreferrer">
-        <v-icon
-          :name="item.icon"
-          scale="2"
-        />
+        <v-icon :name="item.icon" scale="2" />
       </a>
     </div>
   </header>
