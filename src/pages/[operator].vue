@@ -7,9 +7,9 @@ const ROUTE = useRoute();
 let operatorInformation = ref(null)
 
 const operator = async (op) => {
-  const RESPONSE = await fetch(`http://localhost:3000/operators/${op}`);
+  const RESPONSE = await fetch(`https://www.arknightsapi.com/v1/operators/${op}`);
   const DATA = await RESPONSE.json();
-  operatorInformation.value = DATA
+  operatorInformation.value = DATA.operators
 };
 
 onActivated(() => {
