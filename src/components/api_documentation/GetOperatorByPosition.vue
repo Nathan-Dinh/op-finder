@@ -1,4 +1,5 @@
 <script setup>
+import Panel from "primevue/panel";
 import ResponseTemplate from "./ResponseTemplate.vue";
 import RequestTemplate from "./RequestTemplate.vue";
 import PreCodeExample from "./PreCodeExample.vue";
@@ -8,13 +9,13 @@ const GET_PROPS = [
     name: "limit",
     type: "int",
     description: "A query that returns set amount of operators",
-    example: "operators?limit=4",
+    example: "operators/position/:position?limit=4",
   },
   {
     name: "offset",
     type: "int",
     description: "A query that offsets the operators returned",
-    example: "operators?offset=2",
+    example: "operators/position/:position?offset=2",
   },
 ];
 
@@ -55,51 +56,42 @@ const OP_OBJECT_PROP = [
   <div>
     <section>
       <div>
-        <p>Get information on arknights operators characters</p>
+        <p>Get information on arknights operators characters by the operators position</p>
       </div>
       <div>
         <h3>Endpoint</h3>
         <div class="code">
-          <code>https://www.arknightsapi.com/v1/operators</code>
+            <code>https://www.arknightsapi.com/v1/operators/position/:position</code>
         </div>
       </div>
       <h3>Request</h3>
       <hr />
       <RequestTemplate :items="GET_PROPS" />
-      <div>
-        <h3>Response</h3>
-        <hr />
-        <p>A set of operators</p>
-        <PreCodeExample/>
-        <div class="prop-container">
-          <div>
-            <h4>count</h4>
-            <span>int</span>
-          </div>
-          <p>returns the total number of operators</p>
-          <div class="code">
-            <code>"count": 5</code>
-          </div>
+      <h3>Response</h3>
+      <hr />
+      <p>A set of operators that contain searched position</p>
+      <PreCodeExample/>
+      <div class="prop-container">
+        <div>
+          <h4>count</h4>
+          <span>int</span>
         </div>
-        <ResponseTemplate :items="OP_OBJECT_PROP" />
+        <p>returns the total number of operators</p>
+        <div class="code">
+          <code>"count": 5</code>
+        </div>
       </div>
+      <ResponseTemplate :items="OP_OBJECT_PROP" />
     </section>
   </div>
 </template>
 
 <style scoped>
-pre {
-  max-width: 100%;
-  overflow-x: auto;
-}
-hr{
-  margin-bottom: 1em;
-}
 .code {
   height: auto; /* Allow the height to adjust based on the content */
   border: 1px solid #000; /* Add a border for the box */
   border-radius: 3px;
-  background: rgb(78, 78, 78);
+  background:rgb(78, 78, 78);
   padding: 10px; /* Add padding inside the box */
   word-wrap: break-word;
 }
@@ -127,7 +119,8 @@ hr{
   padding-left: 0.5em;
 }
 
-:deep(.header-container) {
-  padding: 1em 0;
+:deep(.header-container){
+    padding:1em 0;
+
 }
 </style>

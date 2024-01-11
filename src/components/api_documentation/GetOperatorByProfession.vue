@@ -1,23 +1,22 @@
 <script setup>
+import Panel from "primevue/panel";
 import ResponseTemplate from "./ResponseTemplate.vue";
 import RequestTemplate from "./RequestTemplate.vue";
 import PreCodeExample from "./PreCodeExample.vue";
-
 const GET_PROPS = [
   {
     name: "limit",
     type: "int",
     description: "A query that returns set amount of operators",
-    example: "operators?limit=4",
+    example: "operators/profession/:profession?limit=4",
   },
   {
     name: "offset",
     type: "int",
     description: "A query that offsets the operators returned",
-    example: "operators?offset=2",
+    example: "operators/profession/:profession?offset=2",
   },
 ];
-
 const OP_OBJECT_PROP = [
   { name: "imgUrl", type: "string", description: "The operator image url" },
   { name: "name", type: "string", description: "The name of the operator" },
@@ -55,34 +54,37 @@ const OP_OBJECT_PROP = [
   <div>
     <section>
       <div>
-        <p>Get information on arknights operators characters</p>
+        <p>
+          Get information on arknights operators characters by the operators
+          profession
+        </p>
       </div>
       <div>
         <h3>Endpoint</h3>
         <div class="code">
-          <code>https://www.arknightsapi.com/v1/operators</code>
+          <code
+            >https://www.arknightsapi.com/v1/operators/profession/:profession</code
+          >
         </div>
       </div>
       <h3>Request</h3>
       <hr />
       <RequestTemplate :items="GET_PROPS" />
-      <div>
-        <h3>Response</h3>
-        <hr />
-        <p>A set of operators</p>
-        <PreCodeExample/>
-        <div class="prop-container">
-          <div>
-            <h4>count</h4>
-            <span>int</span>
-          </div>
-          <p>returns the total number of operators</p>
-          <div class="code">
-            <code>"count": 5</code>
-          </div>
+      <h3>Response</h3>
+      <hr />
+      <p>A set of operators that contain searched profession</p>
+      <PreCodeExample/>
+      <div class="prop-container">
+        <div>
+          <h4>count</h4>
+          <span>int</span>
         </div>
-        <ResponseTemplate :items="OP_OBJECT_PROP" />
+        <p>returns the total number of operators</p>
+        <div class="code">
+          <code>"count": 5</code>
+        </div>
       </div>
+      <ResponseTemplate :items="OP_OBJECT_PROP" />
     </section>
   </div>
 </template>
@@ -91,9 +93,6 @@ const OP_OBJECT_PROP = [
 pre {
   max-width: 100%;
   overflow-x: auto;
-}
-hr{
-  margin-bottom: 1em;
 }
 .code {
   height: auto; /* Allow the height to adjust based on the content */
