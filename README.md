@@ -10,7 +10,7 @@ A simple web application created in vue vite to showcase a REST API I created ht
 
 This web application represents a small-scale project designed as an introductory showcase of Vue.js framework capabilities. Utilizing an API developed specifically for this purpose, the application revolves around a well-known mobile game, Arknights. Users can efficiently explore and retrieve basic information about various game operators up to a specified threshold through the search functionality provided.
 
-Users can also use this API if they like 
+**Note**: Users can also use this API if they like but is still a work in progress so there might be bugs that have not been found.
 
 <img width="1435" alt="image" src="https://github.com/Nathan-Dinh/op-finder/assets/106849932/808a5494-deb8-4edf-8782-76ada0d5228d">
 
