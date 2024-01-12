@@ -1,6 +1,6 @@
 # OpFinder
 
-A simple web application created in vue vite https://op-finder.vercel.app/ 
+A simple web application created in vue vite to showcase a REST API I created https://op-finder.vercel.app/ 
 
 ## Table of Contents
 
@@ -8,14 +8,16 @@ A simple web application created in vue vite https://op-finder.vercel.app/
 
 ## Project Description
 
-This web application represents a small-scale project designed as an introductory showcase of Vue.js framework capabilities. Utilizing an API developed specifically for this purpose, the application revolves around a well-known mobile game, Arknights. 
-Users can efficiently explore and retrieve basic information about various game operators up to a specified threshold through the search functionality provided.
+This web application represents a small-scale project designed as an introductory showcase of Vue.js framework capabilities. Utilizing an API developed specifically for this purpose, the application revolves around a well-known mobile game, Arknights. Users can efficiently explore and retrieve basic information about various game operators up to a specified threshold through the search functionality provided.
 
-**Note:** The API it uses is off Render's free tier, so your first few requests might take a minute. 
+**Note**: Users can also use this API if they like but is still a work in progress so there might be bugs that have not been found.
 
-![image](https://github.com/Nathan-Dinh/op-finder/assets/106849932/877df12a-0f03-4811-b599-f7e3c8e26a5d)
+<img width="1435" alt="image" src="https://github.com/Nathan-Dinh/op-finder/assets/106849932/808a5494-deb8-4edf-8782-76ada0d5228d">
 
-![image](https://github.com/Nathan-Dinh/op-finder/assets/106849932/13c147ea-244d-4770-9249-006674b708e5)
+<img width="1439" alt="image" src="https://github.com/Nathan-Dinh/op-finder/assets/106849932/cf6ae13e-ca2a-4591-a234-c6c2f469a04d">
 
-![image](https://github.com/Nathan-Dinh/op-finder/assets/106849932/afff1fb6-0982-4525-9f0f-3a896b5aac53)
+<img width="1434" alt="image" src="https://github.com/Nathan-Dinh/op-finder/assets/106849932/bf3463ef-0c79-4bfd-8a52-abae2f240b92">
+
+
+
 
