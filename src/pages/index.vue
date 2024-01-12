@@ -22,7 +22,7 @@ onBeforeMount(() => {
     </header>
     <hr />
     <div>
-      <Accordion  class="nested-container">
+      <Accordion class="nested-container">
         <div class="sub-container">
           <AccordionTab header="Get Operators">
             <GetOperators />

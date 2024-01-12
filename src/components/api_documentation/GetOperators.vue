@@ -2,7 +2,14 @@
 import ResponseTemplate from "./ResponseTemplate.vue";
 import RequestTemplate from "./RequestTemplate.vue";
 import PreCodeExample from "./PreCodeExample.vue";
+import PropWithCode from "./PropWithCode.vue";
 
+const COUNT_PROP = {
+  name: "count",
+  type: "int",
+  description: "returns the total number of operators",
+  codeSnippet: '"count": 5',
+};
 const GET_PROPS = [
   {
     name: "limit",
@@ -17,7 +24,6 @@ const GET_PROPS = [
     example: "operators?offset=2",
   },
 ];
-
 const OP_OBJECT_PROP = [
   { name: "imgUrl", type: "string", description: "The operator image url" },
   { name: "name", type: "string", description: "The name of the operator" },
@@ -52,7 +58,6 @@ const OP_OBJECT_PROP = [
 </script>
 
 <template>
-  <div>
     <section>
       <div>
         <p>Get information on arknights operators characters</p>
@@ -63,28 +68,22 @@ const OP_OBJECT_PROP = [
           <code>https://www.arknightsapi.com/v1/operators</code>
         </div>
       </div>
-      <h3>Request</h3>
-      <hr />
-      <RequestTemplate :items="GET_PROPS" />
       <div>
-        <h3>Response</h3>
+        <h3>Request</h3>
         <hr />
-        <p>A set of operators</p>
-        <PreCodeExample/>
-        <div class="prop-container">
-          <div>
-            <h4>count</h4>
-            <span>int</span>
-          </div>
-          <p>returns the total number of operators</p>
-          <div class="code">
-            <code>"count": 5</code>
-          </div>
+        <RequestTemplate :items="GET_PROPS" />
+      </div>
+      <div>
+        <div>
+          <h3>Response</h3>
+          <hr />
+          <p>A set of operators</p>
+          <PreCodeExample />
+          <PropWithCode :item="COUNT_PROP" />
+          <ResponseTemplate :items="OP_OBJECT_PROP" />
         </div>
-        <ResponseTemplate :items="OP_OBJECT_PROP" />
       </div>
     </section>
-  </div>
 </template>
 
 <style scoped>
@@ -92,39 +91,8 @@ pre {
   max-width: 100%;
   overflow-x: auto;
 }
-hr{
+hr {
   margin-bottom: 1em;
-}
-.code {
-  height: auto; /* Allow the height to adjust based on the content */
-  border: 1px solid #000; /* Add a border for the box */
-  border-radius: 3px;
-  background: rgb(78, 78, 78);
-  padding: 10px; /* Add padding inside the box */
-  word-wrap: break-word;
-}
-.prop-container {
-  padding: 1em;
-}
-.prop-container div {
-  display: flex;
-  align-items: center;
-}
-.prop-container div h4 {
-  padding: 0.2em 0.5em 0.2em 0.5em;
-  background: rgb(142, 156, 165);
-  border-radius: 5px;
-  margin-right: 0.5em;
-}
-.sub-container {
-  margin: 1em 0 1em 0;
-}
-.sub-container .header-container {
-  display: flex;
-}
-.sub-container .header-container div {
-  display: flex;
-  padding-left: 0.5em;
 }
 
 :deep(.header-container) {

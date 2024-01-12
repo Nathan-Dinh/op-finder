@@ -1,43 +1,59 @@
 /* CSS Reset */
 /* Box sizing border-box for all elements */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Remove default list styles */
-  ul, ol {
-    list-style: none;
-  }
-  
-  /* Remove margins and paddings from headings */
-  h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Basic Typography */
-  body {
-    font-size: 16px;
-    line-height: 1.6;
-    background-color: rgb(19, 18, 18);
-    color: white;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  /* Links */
-  a {
-    text-decoration: none;
-  }
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
 
-  .title{
-    font-size: xx-large;
-    font-weight: bold;
-  }
-  
-  .container {
-    padding:0 1em 1em 1em;
-  }
+/* Remove margins and paddings from headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Basic Typography */
+body {
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: rgb(19, 18, 18);
+  color: white;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+}
+
+.title {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.container {
+  padding: 0 1em 1em 1em;
+}
+
+.code {
+  height: auto; /* Allow the height to adjust based on the content */
+  border: 1px solid #000; /* Add a border for the box */
+  border-radius: 3px;
+  background: rgb(78, 78, 78);
+  padding: 10px; /* Add padding inside the box */
+  word-break: break-all; /* Allows unbreakable words to be broken */
+  overflow-wrap: break-word; /* Similar to 'break-all', but avoids breaking within words */
+}
 
 /* Tooltip text */
 .tooltiptext {
@@ -49,7 +65,7 @@
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
- 
+
   /* Position the tooltip text - see examples below! */
   position: absolute;
   left: 5.5em;
@@ -66,4 +82,3 @@
     display: inline;
   }
 }
-

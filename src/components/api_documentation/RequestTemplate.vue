@@ -27,15 +27,6 @@ const props = defineProps(["items"]);
 </template>
 
 <style scoped>
-.code {
-  height: auto; /* Allow the height to adjust based on the content */
-  border: 1px solid #000; /* Add a border for the box */
-  border-radius: 3px;
-  background: rgb(78, 78, 78);
-  padding: 10px; /* Add padding inside the box */
-  word-break: break-all; /* Allows unbreakable words to be broken */
-  overflow-wrap: break-word; /* Similar to 'break-all', but avoids breaking within words */
-}
 .prop-container {
   padding: 1em;
 }
