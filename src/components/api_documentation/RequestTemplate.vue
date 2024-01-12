@@ -19,8 +19,8 @@ const props = defineProps(["items"]);
         <span>{{ item.type }}</span>
       </div>
       <p>{{ item.description }}</p>
-      <div class="code">
-        <code>{{ item.example }}</code>
+      <div >
+        <code class="code">{{ item.example }}</code>
       </div>
     </div>
   </Panel>
@@ -33,7 +33,8 @@ const props = defineProps(["items"]);
   border-radius: 3px;
   background: rgb(78, 78, 78);
   padding: 10px; /* Add padding inside the box */
-  word-wrap: break-word;
+  word-break: break-all; /* Allows unbreakable words to be broken */
+  overflow-wrap: break-word; /* Similar to 'break-all', but avoids breaking within words */
 }
 .prop-container {
   padding: 1em;
