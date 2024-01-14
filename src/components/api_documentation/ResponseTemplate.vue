@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps } from "vue";
 import PropWithoutCode from "./PropWithoutCode.vue";
+import PropWithCode from "./PropWithCode.vue";
 import Panel from "primevue/panel";
 const props = defineProps(["items"]);
 
@@ -15,7 +16,7 @@ const OPERATOR_PROP = {
   <Panel toggleable class="sub-container">
     <template #header>
       <div class="header-container">
-        <PropWithoutCode :item="OPERATOR_PROP"/>
+        <PropWithCode :item="OPERATOR_PROP"/>
       </div>
     </template>
     <PropWithoutCode
@@ -33,7 +34,6 @@ const OPERATOR_PROP = {
   display: flex;
   padding-left: 0.5em;
 }
-
 :deep(.p-toggleable-content) {
   padding: 3em;
 }
