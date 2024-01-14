@@ -36,7 +36,7 @@ const props = defineProps(["items"]);
 }
 .prop-container div h4 {
   padding: 0.2em 0.5em 0.2em 0.5em;
-  background: rgb(142, 156, 165);
+  background: rgb(43, 111, 153);
   border-radius: 5px;
   margin-right: 0.5em;
 }
