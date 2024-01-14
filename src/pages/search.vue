@@ -12,6 +12,8 @@ let returnInformation = ref(null);
 let currentTab = useCurrentTab((state) => state.currentSearchTab);
 const update = useCurrentTab((state) => state.updateOptionTab);
 
+const IS_LOADING = ref(false);
+
 const OPTION_LIST_ITEM = [
   {
     label: "Name",
@@ -30,7 +32,6 @@ const OPTION_LIST_ITEM = [
 const SearchEventHandler = async (op) => {
   const str = op.toLowerCase();
   let urlString = "";
-  console.log(currentTab.value);
   if (typeof str === "string" && str.trim().length !== 0 && isNaN(str)) {
     switch (currentTab.value) {
       case "Name":
@@ -44,10 +45,13 @@ const SearchEventHandler = async (op) => {
         break;
     }
     try {
+      IS_LOADING.value = true
       const response = await fetch(urlString);
       const context = await response.json();
       returnInformation.value = context.operators;
+      IS_LOADING.value = false
     } catch (error) {
+      IS_LOADING.value = false
       console.log(error);
     }
   } else {
@@ -66,6 +70,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
+  <div v-if="IS_LOADING"></div>
   <div>
     <aside>
       <TabBar
@@ -81,11 +86,14 @@ onBeforeMount(() => {
     </aside>
     <div id="main-container">
       <SearchBar @event-click-handler="SearchEventHandler" />
-      <section v-if="returnInformation != null" class="sub-container">
-        <RouterLink v-for="item in returnInformation" :to="item.name">
-          <operatorPortraitCard :op="item" />
-        </RouterLink>
-      </section>
+      <div v-if="IS_LOADING" class="loader-container">
+        <span class="loader"></span>
+      </div>
+      <div v-else="!IS_LOADING">
+        <section v-if="returnInformation != null" class="sub-container">
+            <operatorPortraitCard v-for="item in returnInformation" :op="item" />
+        </section>
+      </div>
     </div>
   </div>
 </template>
@@ -100,6 +108,13 @@ onBeforeMount(() => {
   display: grid;
   grid-template-columns: repeat(2, auto);
   height: 65vh;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+  align-items: center;
 }
 
 .secondary-nav {

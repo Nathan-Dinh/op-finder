@@ -1,30 +1,34 @@
 <script setup>
 import { ref, onBeforeMount } from "vue";
 import OperatorPortraitCard from "@/components/operatorPortraitCard.vue";
-import { Capitalize } from "../utilities/formatting.js";
 import { useCurrentTab } from "../store/useCurrentTab.js";
 
 const OPERATOR_ARR = ref(null);
 const UPDATE_OPTION_TAB = useCurrentTab((state) => state.updateOptionTab);
 
+const IS_LOADING = ref(false);
+
 const FetchOperators = async () => {
+  IS_LOADING.value = true;
   const RESPONSE = await fetch("https://www.arknightsapi.com/v1/operators");
   const DATA = await RESPONSE.json();
   OPERATOR_ARR.value = DATA.operators;
+  IS_LOADING.value = false;
 };
 
 onBeforeMount(() => {
   UPDATE_OPTION_TAB("Gallery");
+  FetchOperators();
+  console.log("trigger")
 });
-FetchOperators();
 </script>
 
 <template>
-  <div class="main-container">
+  <div v-if="IS_LOADING" class="loader-container">
+    <span class="loader"></span>
+  </div>
+  <div v-else="!IS_LOADING" class="main-container">
     <div v-for="item in OPERATOR_ARR">
-      <header class="header">
-        <h1>{{ Capitalize(item.name) }}</h1>
-      </header>
       <section>
         <OperatorPortraitCard :op="item" />
       </section>
@@ -39,8 +43,12 @@ FetchOperators();
   padding: 0 15em;
   text-align: center;
 }
-.header {
-  font-size: 1em;
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+  align-items: center;
 }
 
 @media only screen and (max-width: 900px) {
