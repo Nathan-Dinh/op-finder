@@ -110,13 +110,6 @@ onBeforeMount(() => {
   height: 65vh;
 }
 
-.loader-container {
-  display: flex;
-  justify-content: center;
-  height: 50vh;
-  align-items: center;
-}
-
 .secondary-nav {
   display: flex;
   flex: 1;

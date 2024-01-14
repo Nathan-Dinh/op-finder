@@ -44,12 +44,6 @@ onBeforeMount(() => {
   text-align: center;
 }
 
-.loader-container {
-  display: flex;
-  justify-content: center;
-  height: 50vh;
-  align-items: center;
-}
 
 @media only screen and (max-width: 900px) {
   .main-container {
