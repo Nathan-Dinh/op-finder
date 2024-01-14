@@ -7,7 +7,7 @@ const props = defineProps(["items"]);
 
 const OPERATOR_PROP = {
   name: "operators",
-  type: "Array of operators",
+  type: "Array",
   description: ""
 }
 </script>
