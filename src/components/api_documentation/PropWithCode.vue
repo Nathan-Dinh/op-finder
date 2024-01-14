@@ -10,7 +10,7 @@ const props = defineProps(["item"]);
       <span>{{ props.item.type }}</span>
     </div>
     <p>{{ props.item.description }}</p>
-    <div class="code">
+    <div v-if="props.item.codeSnippet" class="code">
       <code>{{ props.item.codeSnippet }}</code>
     </div>
   </div>
