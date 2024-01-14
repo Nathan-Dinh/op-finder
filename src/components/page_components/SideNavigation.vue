@@ -3,7 +3,7 @@ import { ref, defineProps } from "vue";
 import { RouterLink } from "vue-router";
 import { useCurrentTab } from "../../store/useCurrentTab";
 
-const props = defineProps(['items'])
+const props = defineProps(["items"]);
 const currentOptionTab = ref(useCurrentTab((state) => state.currentOptionTab));
 </script>
 
@@ -17,13 +17,15 @@ const currentOptionTab = ref(useCurrentTab((state) => state.currentOptionTab));
     <hr />
     <nav class="nav-container">
       <router-link
-        @click="$emit('click-handler',items.name)"
+        @click="$emit('click-handler', items.name)"
         class="pushable tooltip"
         :to="items.path"
         v-for="items in props.items"
       >
         <div
-          :class="currentOptionTab === items.name ? 'front highlighted' : 'front'"
+          :class="
+            currentOptionTab === items.name ? 'front highlighted' : 'front'
+          "
         >
           <v-icon :name="items.icon" scale="2" />
           <span class="tooltiptext">{{ items.tooltip }}</span>
@@ -38,7 +40,7 @@ const currentOptionTab = ref(useCurrentTab((state) => state.currentOptionTab));
   width: 3.2em;
 }
 
-.container{
+.container {
   min-height: 80%;
   max-height: 80%;
   padding: 0.3em;
@@ -93,5 +95,4 @@ const currentOptionTab = ref(useCurrentTab((state) => state.currentOptionTab));
 .pushable:active .front {
   transform: translateY(-2px);
 }
-
 </style>
