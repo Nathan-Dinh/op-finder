@@ -58,40 +58,43 @@ const OP_OBJECT_PROP = [
 </script>
 
 <template>
-    <section>
-      <div>
-        <p>Get information on arknights operators characters</p>
+  <section>
+    <div class="section">
+      <p>Get information on arknights operators characters</p>
+      <h3>Endpoint</h3>
+      <div class="code">
+        <code>https://www.arknightsapi.com/v1/operators</code>
       </div>
+    </div>
+    <div class="section">
+      <h3>Request</h3>
+      <hr />
+      <RequestTemplate :items="GET_PROPS" />
+    </div>
+    <div class="section">
       <div>
-        <h3>Endpoint</h3>
-        <div class="code">
-          <code>https://www.arknightsapi.com/v1/operators</code>
-        </div>
-      </div>
-      <div>
-        <h3>Request</h3>
+        <h3>Response</h3>
         <hr />
-        <RequestTemplate :items="GET_PROPS" />
+        <p>A set of operators</p>
+        <PreCodeExample />
+        <PropWithCode :item="COUNT_PROP" />
+        <ResponseTemplate :items="OP_OBJECT_PROP" />
       </div>
-      <div>
-        <div>
-          <h3>Response</h3>
-          <hr />
-          <p>A set of operators</p>
-          <PreCodeExample />
-          <PropWithCode :item="COUNT_PROP" />
-          <ResponseTemplate :items="OP_OBJECT_PROP" />
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
 </template>
 
 <style scoped>
-pre {
-  max-width: 100%;
-  overflow-x: auto;
+p {
+  font-size: large;
+  margin-bottom: 1em;
 }
+
 hr {
+  margin-bottom: 1em;
+}
+
+.section {
   margin-bottom: 1em;
 }
 

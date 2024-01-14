@@ -94,6 +94,11 @@ const OP_OBJECT_PROP = [
 </template>
 
 <style scoped>
+p {
+  font-size: large;
+  margin-bottom: 1em;
+}
+
 hr {
   margin-bottom: 1em;
 }
