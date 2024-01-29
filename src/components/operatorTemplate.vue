@@ -2,6 +2,7 @@
 const props = defineProps(["opInfo"]);
 import Card from "primevue/card";
 import { Capitalize } from "@/utilities/formatting";
+console.log(props.opInfo);
 </script>
 
 <template>
@@ -15,31 +16,63 @@ import { Capitalize } from "@/utilities/formatting";
             alt="Operator Image"
           />
         </div>
-        <section>
-          <div class="operator-name">
-            <h1>{{ Capitalize(props.opInfo.name) }}</h1>
-          </div>
-          <div class="requirement-sub-header">
-            <h2 class="sub-header">Requirement tag</h2>
-          </div>
-          <div class="tags sub-content">
-            <div v-for="tag in props.opInfo.recruitmentTag">
-              <p>{{ tag }}</p>
+        <div>
+          <section>
+            <div class="operator-name">
+              <h1>{{ Capitalize(props.opInfo.name) }}</h1>
             </div>
-          </div>
-          <div class="archetype-sub-header">
-            <h2 class="sub-header">Archetype</h2>
-          </div>
-          <div class="archetype">
-            <p class="sub-content">{{ props.opInfo.archetype }}</p>
-          </div>
-          <div class="profile-sub-header">
-            <h2 class="sub-header">Profile</h2>
-          </div>
-          <div class="profile">
-            <p class="sub-content">{{ props.opInfo.profile }}</p>
-          </div>
-        </section>
+          </section>
+          <section>
+            <div class="requirement-sub-header">
+              <h2 class="sub-header">Requirement tag</h2>
+            </div>
+            <div class="tags sub-content">
+              <div v-for="tag in props.opInfo.recruitmentTag">
+                <p>{{ tag }}</p>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="archetype-sub-header">
+              <h2 class="sub-header">Archetype</h2>
+            </div>
+            <div class="archetype">
+              <p class="sub-content">{{ props.opInfo.archetype }}</p>
+            </div>
+          </section>
+          <section>
+            <div class="requirement-sub-header">
+              <h2 class="sub-header">Position</h2>
+            </div>
+            <div class="archetype">
+              <p class="sub-content">{{ props.opInfo.archetype }}</p>
+            </div>
+          </section>
+          <section>
+            <div class="requirement-sub-header">
+              <h2 class="sub-header">Profession</h2>
+            </div>
+            <div class="archetype">
+              <p class="sub-content">{{ props.opInfo.archetype }}</p>
+            </div>
+          </section>
+          <section>
+            <div class="requirement-sub-header">
+              <h2 class="sub-header">Attack Type</h2>
+            </div>
+            <div class="archetype">
+              <p class="sub-content">{{ props.opInfo.archetype }}</p>
+            </div>
+          </section>
+          <section>
+            <div class="profile-sub-header">
+              <h2 class="sub-header">Profile</h2>
+            </div>
+            <div class="profile">
+              <p class="sub-content">{{ props.opInfo.profile }}</p>
+            </div>
+          </section>
+        </div>
       </div>
     </template>
   </Card>
@@ -94,30 +127,22 @@ import { Capitalize } from "@/utilities/formatting";
   padding: 1em;
 }
 .image-resize {
-  max-width: 42em;
+  max-width: 40em;
   height: auto;
 }
 .card-container {
-  display: grid;
-  grid-template-areas:
-    "image name name name name"
-    "image requirement-sub requirement-sub requirement-sub requirement-sub"
-    "image tags tags tags tags"
-    "image arch-sub arch-sub arch-sub arch-sub"
-    "image arch arch arch arch"
-    "image profile-sub profile-sub profile-sub profile-sub"
-    "image profile profile profile profile";
+  display: flex;
   border-radius: 5px;
   align-items: center;
   height: 80vh;
-  padding: 1em;
+  padding: 5em;
 }
 
 @media only screen and (max-width: 1200px) {
   .card-container {
-    display: flex;
     flex-direction: column;
     height: auto;
+    padding: 1em;
   }
   .image-resize {
     width: 60%;
