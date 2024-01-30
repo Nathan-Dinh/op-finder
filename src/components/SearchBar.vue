@@ -11,7 +11,7 @@
     <form @submit.prevent  method="get" class="search-box">
       <div class="user-box">
         <label for="operatorName"></label>
-        <InputText v-model="op" type="text" name="operatorName" />
+        <InputText v-model="op" type="text" name="operatorName" @keyup.enter="$emit('event-click-handler', op)"/>
       </div>
       <div>
         <Button @click="$emit('event-click-handler', op)" class="button-31" label="search"/>
@@ -45,5 +45,11 @@
 .button-31:hover,
 .button-31:focus {
   opacity: .75  ;
+}
+
+@media only screen and (max-width: 700px) {
+  .button-31 {
+    display: none;
+  }
 }
 </style>
