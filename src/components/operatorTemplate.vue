@@ -45,7 +45,7 @@ console.log(props.opInfo);
               <h2 class="sub-header">Position</h2>
             </div>
             <div class="archetype">
-              <p class="sub-content">{{ props.opInfo.archetype }}</p>
+              <p class="sub-content">{{ props.opInfo.position }}</p>
             </div>
           </section>
           <section>
@@ -53,7 +53,7 @@ console.log(props.opInfo);
               <h2 class="sub-header">Profession</h2>
             </div>
             <div class="archetype">
-              <p class="sub-content">{{ props.opInfo.archetype }}</p>
+              <p class="sub-content">{{ props.opInfo.profession }}</p>
             </div>
           </section>
           <section>
@@ -61,7 +61,7 @@ console.log(props.opInfo);
               <h2 class="sub-header">Attack Type</h2>
             </div>
             <div class="archetype">
-              <p class="sub-content">{{ props.opInfo.archetype }}</p>
+              <p class="sub-content">{{ props.opInfo.attackType }}</p>
             </div>
           </section>
           <section>
