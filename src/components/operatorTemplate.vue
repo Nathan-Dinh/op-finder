@@ -134,7 +134,7 @@ console.log(props.opInfo);
   display: flex;
   border-radius: 5px;
   align-items: center;
-  height: 80vh;
+  min-height: 80vh;
   padding: 5em;
 }
 
