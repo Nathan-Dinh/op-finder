@@ -28,7 +28,7 @@ console.log(props.opInfo);
             </div>
             <div class="tags sub-content">
               <div v-for="tag in props.opInfo.recruitmentTag">
-                <p>{{ tag }}</p>
+                <p>{{ Capitalize(tag) }}</p>
               </div>
             </div>
           </section>
@@ -37,7 +37,7 @@ console.log(props.opInfo);
               <h2 class="sub-header">Archetype</h2>
             </div>
             <div class="archetype">
-              <p class="sub-content">{{ props.opInfo.archetype }}</p>
+              <p class="sub-content">{{ Capitalize(props.opInfo.archetype) }}</p>
             </div>
           </section>
           <section>
@@ -45,7 +45,7 @@ console.log(props.opInfo);
               <h2 class="sub-header">Position</h2>
             </div>
             <div class="archetype">
-              <p class="sub-content">{{ props.opInfo.position }}</p>
+              <p class="sub-content">{{ Capitalize(props.opInfo.position) }}</p>
             </div>
           </section>
           <section>
@@ -53,7 +53,7 @@ console.log(props.opInfo);
               <h2 class="sub-header">Profession</h2>
             </div>
             <div class="archetype">
-              <p class="sub-content">{{ props.opInfo.profession }}</p>
+              <p class="sub-content">{{ Capitalize(props.opInfo.profession) }}</p>
             </div>
           </section>
           <section>
@@ -61,7 +61,7 @@ console.log(props.opInfo);
               <h2 class="sub-header">Attack Type</h2>
             </div>
             <div class="archetype">
-              <p class="sub-content">{{ props.opInfo.attackType }}</p>
+              <p class="sub-content">{{ Capitalize(props.opInfo.attackType) }}</p>
             </div>
           </section>
           <section>
@@ -69,7 +69,7 @@ console.log(props.opInfo);
               <h2 class="sub-header">Profile</h2>
             </div>
             <div class="profile">
-              <p class="sub-content">{{ props.opInfo.profile }}</p>
+              <p class="sub-content">{{ Capitalize(props.opInfo.profile) }}</p>
             </div>
           </section>
         </div>
