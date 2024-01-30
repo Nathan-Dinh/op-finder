@@ -72,11 +72,6 @@ const OP_OBJECT_PROP = [
         </div>
       </div>
       <div>
-        <h3>Request</h3>
-        <hr />
-        <RequestTemplate :items="GET_PROPS" />
-      </div>
-      <div>
         <h3>Response</h3>
         <hr />
         <p>A set of operators that contain searched name</p>
