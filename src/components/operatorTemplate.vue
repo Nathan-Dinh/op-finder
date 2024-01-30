@@ -135,7 +135,7 @@ console.log(props.opInfo);
   border-radius: 5px;
   align-items: center;
   min-height: 80vh;
-  padding: 5em;
+  padding: 2em;
 }
 
 @media only screen and (max-width: 1200px) {
